@@ -1,7 +1,8 @@
 
-# Currently live on https://demo-contacts-api-samuel.herokuapp.com/
+# demo-contacts-api 
+1) Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 
-# demo-contacts-api - Steps to run 
+#  Steps to run 
 1) Download the files from this repo
 2) `cd` into the folder
 3) Run `virtualenv flaks` in the terminal
