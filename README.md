@@ -4,7 +4,7 @@ Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 ### Different URLs to run
  1) To see details of everyone: https://demo-contacts-api-samuel.herokuapp.com/
  2) To see contacts of everyone: https://demo-contacts-api-samuel.herokuapp.com/all_contacts/
- 3) To see details of Ultron: https://demo-contacts-api-samuel.herokuapp.com/contacts/?name=Ultron
+ 3) To see all information of Ultron: https://demo-contacts-api-samuel.herokuapp.com/contacts/?name=Ultron
 
 #  Steps to run the files locally:
 1) Download the files from this repo
