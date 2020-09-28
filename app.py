@@ -129,7 +129,7 @@ def api_filter():
 
     return item.jsonAll()
 
-api.add_resource(All_People, '/all_people/')
+api.add_resource(All_People, '/')
 api.add_resource(People_List, '/people/<int:id>/')
 api.add_resource(All_Contact, '/all_contacts/')
 api.add_resource(Contact_List, '/people/<int:id>/contacts/')
