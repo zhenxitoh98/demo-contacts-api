@@ -19,10 +19,13 @@ Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 ### To POST to the people API:
 1) Run `curl -i -H "Content-Type: application/json" -X POST -d '{"name":"Ultron", "age":29, "height":155}' http://127.0.0.1:5000/people/<int:id>/` in a new terminal
 
+### To GET data from the people API:
+1) Run `curl -i http://127.0.0.1:5000/people/<int:id>/` in a new terminal
+
 ### To POST to the contacts API:
 1) Run `curl -i -H "Content-Type: application/json" -X POST -d '{"email":"ultron@avengers.com", "number":"0198345212"}' http://127.0.0.1:5000/people/<int:id>/contacts/` in a new terminal
 
-### To GET data from the API:
+### To GET data from the contact API:
 1) Run `curl -i http://127.0.0.1:5000/people/<int:id>/contacts/` in a new terminal
 
 #### Note: Replace `<int:id>` with the user ID.
