@@ -26,8 +26,8 @@ class People_List(Resource):
     def get(self, id):
         item = People.find_by_id(id)
         if item:
-            return item.json()
-        return {'Message': 'The person is not found'}
+            return item.json(), 200
+        return {'Message': 'The person is not found'}, 404
 
     # Add details to the database
     def post(self, id):
@@ -35,22 +35,22 @@ class People_List(Resource):
         name = args['name']
 
         if People.find_by_id(id):
-            return {'Message': 'Person with the id {} already exists'.format(id)}
+            return {'Message': 'Person with the id {} already exists'.format(id)}, 500
         elif People.query.filter_by(name=name).first():
-            return {'Message': 'Person with the name {} already exists'.format(name)}
+            return {'Message': 'Person with the name {} already exists'.format(name)}, 500
 
 
         item = People(id, name, args['height'], args['age'], None, None)
         item.save_to()
-        return item.json()
+        return item.json(), 201
 
     # Delete the database, if needed
     def delete(self, id):
         item  = People.find_by_id(id)
         if item:
             item.delete_()
-            return {'Message': '{} has been deleted from records'.format(id)}
-        return {'Message': '{} is already not on the list'.format()}
+            return {'Message': '{} has been deleted from records'.format(id)}, 201
+        return {'Message': '{} is already not on the list'.format()}, 500
 
 # To GET or POST email, and number from the database
 class Contact_List(Resource):
@@ -63,8 +63,8 @@ class Contact_List(Resource):
     def get(self, id):
         item = People.find_by_id(id)
         if item:
-            return item.json2()
-        return {'Message': 'The person is not found'}
+            return item.json2(), 200
+        return {'Message': 'The person is not found'}, 404
 
     # Add details to the database
     def post(self, id):
@@ -73,9 +73,9 @@ class Contact_List(Resource):
         number = args['number']
 
         if People.query.filter_by(email=email).first():
-            return {'Message': 'Person with the email {} already exists'.format(email)}
+            return {'Message': 'Person with the email {} already exists'.format(email)}, 500
         elif People.query.filter_by(number=number).first():
-            return {'Message': 'Person with the number {} already exists'.format(number)}
+            return {'Message': 'Person with the number {} already exists'.format(number)}, 500
 
         item = People.find_by_id(id)
         if item:
@@ -85,25 +85,25 @@ class Contact_List(Resource):
             return {'email':email, 'number':number}
         item = People(id, item.name, item.height, item.age, email, number)
         item.save_to()
-        return item.json2()
+        return item.json2(), 201
 
     # Delete the database, if needed
     def delete(self, id):
         item  = People.find_by_id(id)
         if item:
             item.delete_()
-            return {'Message': '{} has been deleted from records'.format(id)}
-        return {'Message': '{} is already not on the list'.format()}
+            return {'Message': '{} has been deleted from records'.format(id)}, 201
+        return {'Message': '{} is already not on the list'.format()}, 500
 
 # Return name, age, and height of everyone
 class All_People(Resource):
     def get(self):
-        return {'Persons': list(map(lambda x: x.json(), People.query.all()))}
+        return {'Persons': list(map(lambda x: x.json(), People.query.all()))}, 200
 
 # Return email and number of everyone
 class All_Contact(Resource):
     def get(self):
-        return {'Contact': list(map(lambda x: x.json2(), People.query.all()))}
+        return {'Contact': list(map(lambda x: x.json2(), People.query.all()))}, 200
 
 # To get the details of a person based on the query parameters (name, email, number)
 @app.route('/contacts/', methods=["GET"])
@@ -125,7 +125,7 @@ def api_filter():
     if item == None:
         return not_found(404)
 
-    return item.jsonAll()
+    return item.jsonAll(), 200
 
 api.add_resource(All_People, '/')
 api.add_resource(People_List, '/people/<int:id>/')
