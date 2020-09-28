@@ -14,6 +14,7 @@ db.init_app(app)
 app.app_context().push()
 db.create_all()
 
+
 # To GET or POST name, height, and age from the database
 class People_List(Resource):
     # Get details from the json data
@@ -22,35 +23,17 @@ class People_List(Resource):
     parser.add_argument('height', type=int, required=True, help='Height of the person')
     parser.add_argument('age', type=int, required=True, help='Age of the person')
 
-    # Return details from the database
-    def get(self, id):
-        item = People.find_by_id(id)
-        if item:
-            return item.json(), 200
-        return {'Message': 'The person is not found'}, 404
-
     # Add details to the database
-    def post(self, id):
+    def post(self):
         args = People_List.parser.parse_args()
         name = args['name']
 
-        if People.find_by_id(id):
-            return {'Message': 'Person with the id {} already exists'.format(id)}, 500
-        elif People.query.filter_by(name=name).first():
+        if People.query.filter_by(name=name).first():
             return {'Message': 'Person with the name {} already exists'.format(name)}, 500
 
-
-        item = People(id, name, args['height'], args['age'], None, None)
+        item = People(name, args['height'], args['age'], None, None)
         item.save_to()
         return item.json(), 201
-
-    # Delete the database, if needed
-    def delete(self, id):
-        item  = People.find_by_id(id)
-        if item:
-            item.delete_()
-            return {'Message': '{} has been deleted from records'.format(id)}, 201
-        return {'Message': '{} is already not on the list'.format()}, 500
 
 # To GET or POST email, and number from the database
 class Contact_List(Resource):
@@ -58,13 +41,6 @@ class Contact_List(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('email', type=str, required=True, help='Email of the person')
     parser.add_argument('number', type=str, required=True, help='Number of the person')
-
-    # Return details from the database
-    def get(self, id):
-        item = People.find_by_id(id)
-        if item:
-            return item.json2(), 200
-        return {'Message': 'The person is not found'}, 404
 
     # Add details to the database
     def post(self, id):
@@ -81,19 +57,9 @@ class Contact_List(Resource):
         if item:
             item.email = email
             item.number = number
-            item.save_to()
-            return {'email':email, 'number':number}
-        item = People(id, item.name, item.height, item.age, email, number)
-        item.save_to()
-        return item.json2(), 201
-
-    # Delete the database, if needed
-    def delete(self, id):
-        item  = People.find_by_id(id)
-        if item:
-            item.delete_()
-            return {'Message': '{} has been deleted from records'.format(id)}, 201
-        return {'Message': '{} is already not on the list'.format()}, 500
+            item.save_to2()
+            return item.json2(), 201
+        return {'Message': 'Person with the id {} not found'.format(id)}, 500
 
 # Return name, age, and height of everyone
 class All_People(Resource):
@@ -128,7 +94,7 @@ def api_filter():
     return item.jsonAll(), 200
 
 api.add_resource(All_People, '/')
-api.add_resource(People_List, '/people/<int:id>/')
+api.add_resource(People_List, '/people/')
 api.add_resource(All_Contact, '/all_contacts/')
 api.add_resource(Contact_List, '/people/<int:id>/contacts/')
 
