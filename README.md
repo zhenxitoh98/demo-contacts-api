@@ -11,3 +11,6 @@ Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 6) Run `./app.py` in the terminal
 7) Copy the url from the terminal into a browser
 
+## To POST dato to the API
+1)
+
