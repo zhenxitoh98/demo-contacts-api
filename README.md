@@ -7,7 +7,7 @@ Currently live on https://demo-contacts-api-samuel.herokuapp.com/
  3) To see contacts of everyone: https://demo-contacts-api-samuel.herokuapp.com/all_contacts/
  4) To see contacts of user ID 1: https://demo-contacts-api-samuel.herokuapp.com/people/1/contacts/
 
-#  Steps to run:
+#  Steps to run the files locally:
 1) Download the files from this repo
 2) `cd` into the folder
 3) Run `virtualenv flaks` in the terminal
