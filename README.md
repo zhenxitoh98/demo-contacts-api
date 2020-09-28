@@ -1,6 +1,7 @@
 
 # demo-contacts-api 
-Currently live on https://demo-contacts-api-samuel.herokuapp.com/
+This API is written using the Flask framework. The database used is SQLite. It is currently live on https://demo-contacts-api-samuel.herokuapp.com/.
+
 ### Different URLs to run
  1) To see details of everyone: https://demo-contacts-api-samuel.herokuapp.com/
  2) To see contacts of everyone: https://demo-contacts-api-samuel.herokuapp.com/all_contacts/
