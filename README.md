@@ -1,6 +1,11 @@
 
 # demo-contacts-api 
 Currently live on https://demo-contacts-api-samuel.herokuapp.com/
+### Different URLs to run
+ 1) To see details of everyone: https://demo-contacts-api-samuel.herokuapp.com/
+ 2) To see details of a specific person: https://demo-contacts-api-samuel.herokuapp.com/people/<int:id>
+ 3) To see contacts of everyone: https://demo-contacts-api-samuel.herokuapp.com/all_contacts/
+ 4) To see contacts of a specific person: https://demo-contacts-api-samuel.herokuapp.com/people/<int:id>/contacts/
 
 #  Steps to run:
 1) Download the files from this repo
@@ -16,4 +21,6 @@ Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 
 ### To GET data from the API:
 1) Run `curl -i http://127.0.0.1:5000/people/<int:id>/contacts/` in a new terminal
+
+
 
