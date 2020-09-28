@@ -1,6 +1,4 @@
-# demo-contacts-api
-
-# Steps to run 
+# demo-contacts-api - Steps to run 
 1) Download the files from this repo
 2) `cd` into the folder
 3) Run `virtualenv flaks` in the terminal
