@@ -10,7 +10,7 @@ Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 #  Steps to run the files locally:
 1) Download the files from this repo
 2) `cd` into the folder
-3) Run `virtualenv flaks` in the terminal
+3) Run `virtualenv flask` in the terminal
 4) Run `flask/bin/pip install -r requirements.txt` in the terminal
 5) Run `chmod a+x app.py` in the terminal
 6) Run `./app.py` in the terminal
