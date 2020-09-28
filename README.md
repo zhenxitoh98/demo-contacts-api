@@ -22,5 +22,7 @@ Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 ### To GET data from the API:
 1) Run `curl -i http://127.0.0.1:5000/people/<int:id>/contacts/` in a new terminal
 
+Note: Replace `<int:id>` with the user ID.
+
 
 
