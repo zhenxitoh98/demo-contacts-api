@@ -28,7 +28,7 @@ Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 ### To GET data from the contact API:
 1) Run `curl -i http://127.0.0.1:5000/people/<int:id>/contacts/` in a new terminal
 
-#### Note: Replace `<int:id>` with the user ID. If you don't have `curl`, install it here: https://curl.haxx.se/
+#### Note: Replace `<int:id>` with the user ID. If you don't have `curl`, install it here: https://curl.haxx.se/. You can also use https://www.postman.com/ to POST and GET data.
 
 
 
