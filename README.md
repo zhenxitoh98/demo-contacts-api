@@ -6,3 +6,5 @@
 5) Run `chmod a+x app.py` in the terminal
 6) Run `./app.py` in the terminal
 7) Copy the url from the terminal into a browser
+
+# Currently live on https://demo-contacts-api-samuel.herokuapp.com/
