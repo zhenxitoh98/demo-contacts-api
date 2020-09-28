@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "4421187d-2a92-4621-b705-d27a1acc3de1",
+		"name": "demo-contacts-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:5000/people/7/contacts/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "957d21a0-62c6-4487-bacc-effaea9c7d8d",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"// pm.test(\"Get Name of User\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     pm.expect(jsonData.Name).to.eql(\"Ultron\");",
+							"// });",
+							"",
+							"// pm.test(\"Get Number of User\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     pm.expect(jsonData.Number).to.eql(\"0198345212\");",
+							"// });",
+							"",
+							"// pm.test(\"Get Email of User\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     pm.expect(jsonData.Email).to.eql(\"ultron@avengers.com\");",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8dd9f43c-faa7-49f6-a6d7-bccfd2fe4982",
+						"exec": [
+							"var num = Math.floor(Math.random() * Math.floor(1000));",
+							"var random = num.toString()",
+							"var email = \"hero\" + random + \"@avengers.com\";",
+							"",
+							"pm.environment.set(\"email\", email)",
+							"pm.environment.set(\"number\", num)",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"{{email}}\",\n    \"number\": \"{{number}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/people/7/contacts/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"people",
+						"7",
+						"contacts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/people/4/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e6374f18-65f1-4c54-87ae-237e25e167db",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c000cfc6-65ca-4537-be02-475a554f6eac",
+						"exec": [
+							"var num = Math.floor(Math.random() * Math.floor(1000));",
+							"var random = num.toString()",
+							"var name = \"hero\" + random;",
+							"",
+							"pm.environment.set(\"name\", name)",
+							"pm.environment.set(\"age\", num)",
+							"pm.environment.set(\"height\", num)",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"age\": {{age}},\n    \"height\": {{height}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/people/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:5000/contacts/?name=Ultron",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "58cfd8ab-19d2-4bc4-afca-2519041d8371",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.Name).to.eql(\"ultron\");",
+							"});",
+							"",
+							"pm.test(\"Check email\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.Email).to.eql(\"ultron@avengers.com\");",
+							"});",
+							"",
+							"pm.test(\"Check number\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.Number).to.eql(\"0198345212\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/contacts/?name=Ultron",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"contacts",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Ultron"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
