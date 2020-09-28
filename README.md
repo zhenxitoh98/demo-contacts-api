@@ -1,3 +1,6 @@
+
+# Currently live on https://demo-contacts-api-samuel.herokuapp.com/
+
 # demo-contacts-api - Steps to run 
 1) Download the files from this repo
 2) `cd` into the folder
@@ -7,4 +10,3 @@
 6) Run `./app.py` in the terminal
 7) Copy the url from the terminal into a browser
 
-# Currently live on https://demo-contacts-api-samuel.herokuapp.com/
