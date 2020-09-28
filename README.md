@@ -26,5 +26,7 @@ Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 
 #### Note: Replace `<int:id>` with the user ID. If you don't have `curl`, install it here: https://curl.haxx.se/. You can also use https://www.postman.com/ to POST and GET data.
 
+#### The API will output 201 if POSTed successfully to the API, 500 if data is already in the API, and 200 if successfully GET the data from the API.
+
 
 
