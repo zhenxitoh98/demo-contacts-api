@@ -3,9 +3,9 @@
 Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 ### Different URLs to run
  1) To see details of everyone: https://demo-contacts-api-samuel.herokuapp.com/
- 2) To see details of a specific person: https://demo-contacts-api-samuel.herokuapp.com/people/<int:id>
+ 2) To see details of a specific person: https://demo-contacts-api-samuel.herokuapp.com/people/1
  3) To see contacts of everyone: https://demo-contacts-api-samuel.herokuapp.com/all_contacts/
- 4) To see contacts of a specific person: https://demo-contacts-api-samuel.herokuapp.com/people/<int:id>/contacts/
+ 4) To see contacts of a specific person: https://demo-contacts-api-samuel.herokuapp.com/people/1/contacts/
 
 #  Steps to run:
 1) Download the files from this repo
