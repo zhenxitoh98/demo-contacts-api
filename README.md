@@ -11,6 +11,6 @@ Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 6) Run `./app.py` in the terminal
 7) Copy the url from the terminal into a browser
 
-## To POST dato to the API
-1)
+### To POST data to the API
+1) Run `curl -i -H "Content-Type: application/json" -X POST -d '{"name":"Captain America", "age":45, "height":190}' http://127.0.0.1:5000/people/<int:id>/` in a new terminal
 
