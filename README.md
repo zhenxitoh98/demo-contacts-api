@@ -1,6 +1,6 @@
 
 # demo-contacts-api 
-1) Currently live on https://demo-contacts-api-samuel.herokuapp.com/
+Currently live on https://demo-contacts-api-samuel.herokuapp.com/
 
 #  Steps to run 
 1) Download the files from this repo
