@@ -5,7 +5,7 @@ db = SQLAlchemy()
 # The database
 class People(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30), unique=False, nullable=False)
+    name = db.Column(db.String(30), unique=True, nullable=False)
     height = db.Column(db.Integer, unique=False, nullable=False)
     age = db.Column(db.Integer, unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=True)

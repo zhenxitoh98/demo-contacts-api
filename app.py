@@ -31,26 +31,16 @@ class People_List(Resource):
 
     # Add details to the database
     def post(self, id):
-        if People.find_by_id(id) :
+        args = People_List.parser.parse_args()
+        name = args['name']
+
+        if People.find_by_id(id):
             return {'Message': 'Person with the id {} already exists'.format(id)}
+        elif People.query.filter_by(name=name).first():
+            return {'Message': 'Person with the name {} already exists'.format(name)}
 
-        args = People_List.parser.parse_args()
-        item = People(id, args['name'], args['height'], args['age'], None, None)
 
-        item.save_to()
-        return item.json()
-
-    # Update the database, if needed
-    def put(self, id):
-        args = People_List.parser.parse_args()
-        item = People.find_by_id(id)
-        if item:
-            item.name = args['name']
-            item.height = args['height']
-            item.age = args['age']
-            item.save_to()
-            return {'name':args['name'], 'height':args['height'], 'age':args['age']}
-        item = People(id, args['name'], args['height'], args['age'], None, None)
+        item = People(id, name, args['height'], args['age'], None, None)
         item.save_to()
         return item.json()
 
@@ -79,13 +69,21 @@ class Contact_List(Resource):
     # Add details to the database
     def post(self, id):
         args = Contact_List.parser.parse_args()
+        email = args['email']
+        number = args['number']
+
+        if People.query.filter_by(email=email).first():
+            return {'Message': 'Person with the email {} already exists'.format(email)}
+        elif People.query.filter_by(number=number).first():
+            return {'Message': 'Person with the number {} already exists'.format(number)}
+
         item = People.find_by_id(id)
         if item:
-            item.email = args['email']
-            item.number = args['number']
+            item.email = email
+            item.number = number
             item.save_to()
-            return {'email':args['email'], 'number':args['number']}
-        item = People(id, item.name, item.height, item.age, args['email'], args['number'])
+            return {'email':email, 'number':number}
+        item = People(id, item.name, item.height, item.age, email, number)
         item.save_to()
         return item.json2()
 
