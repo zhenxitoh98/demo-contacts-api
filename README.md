@@ -7,7 +7,7 @@ This API is written using the Flask framework. The database used is SQLite. It i
  2) To see contacts of everyone: https://demo-contacts-api-samuel.herokuapp.com/all_contacts/
  3) To see all information of Ultron: https://demo-contacts-api-samuel.herokuapp.com/contacts/?name=Ultron
 
-#  Steps to run the files locally:
+#  Steps to run the files locally on Mac:
 1) Download the files from this repo
 2) `cd` into the folder
 3) Run `pip3 install virtualenv` in the terminal
