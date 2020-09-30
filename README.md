@@ -24,7 +24,7 @@ This API is written using the Flask framework. The database used is SQLite. It i
 ### To GET data from the API:
 1) Run `curl -i http://127.0.0.1:5000/contacts/?name=Ultron` in a new terminal
 
-#### Note: Make sure you have `python3` and `pip3` in your machine. If you don't have `curl`, install it here: https://curl.haxx.se/.
+#### Note: Make sure you have `python` and `pip` in your machine. If you don't have `curl`, install it here: https://curl.haxx.se/.
 
 #### The API will output 201 if POST successfully to the API, 500 if data is already in the API, and 200 if successfully GET the data from the API.
 
