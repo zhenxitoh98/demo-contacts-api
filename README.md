@@ -16,13 +16,13 @@ This API is written using the Flask framework. The database used is SQLite. It i
 6) Run `./app.py` in the terminal
 7) Copy the url from the terminal into a browser
 
-#### Note: If you don't have `virtualenv`, make sure you have `python` and `pip` in your machine and then run `sudo -H pip install virtualenv` in the terminal. If you don't have `curl`, install it here: https://curl.haxx.se/.
+#### Note: If you don't have `virtualenv`, make sure you have `python` and `pip` in your machine and then run `sudo -H pip install virtualenv` in the terminal. Replace `<int:id>` with the user ID. If you don't have `curl`, install it here: https://curl.haxx.se/.
 
 ### To POST to the people API:
 1) Run `curl -i -H "Content-Type: application/json" -X POST -d '{"name":"Ultron", "age":29, "height":155}' http://127.0.0.1:5000/people/` in a new terminal
 
 ### To POST to the contacts API:
-1) Run `curl -i -H "Content-Type: application/json" -X POST -d '{"email":"ultron@avengers.com", "number":"0198345212"}' http://127.0.0.1:5000/people/1/contacts/` in a new terminal
+1) Run `curl -i -H "Content-Type: application/json" -X POST -d '{"email":"ultron@avengers.com", "number":"0198345212"}' http://127.0.0.1:5000/people/<int:id>/contacts/` in a new terminal
 
 ### To GET data from the API:
 1) Run `curl -i http://127.0.0.1:5000/contacts/?name=Ultron` in a new terminal
